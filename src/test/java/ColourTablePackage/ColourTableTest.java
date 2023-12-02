@@ -88,4 +88,17 @@ public class ColourTableTest {
             assertTrue(rgb >= 0x000000 && rgb <= 0xFFFFFF);
         }
     }
+
+    @Test
+    public void testGetRGB() {
+        ColourTable ct = new ColourTable(2);
+        ct.add(255, 0, 0);
+        ct.add(0, 255, 0);
+
+        List<int[]> rgbValues = ct.getRGB();
+        assertEquals(2, rgbValues.size());
+        assertArrayEquals(new int[]{255, 0, 0}, rgbValues.get(0));
+        assertArrayEquals(new int[]{0, 255, 0}, rgbValues.get(1));
+    }
+
 }

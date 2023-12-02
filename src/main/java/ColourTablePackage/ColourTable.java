@@ -33,4 +33,15 @@ public class ColourTable {
         return colours;
     }
 
+    public List<int[]> getRGB() {
+        List<int[]> rgbValues = new ArrayList<>();
+        for (int colour : colours) {
+            int r = (colour >> 16) & 0xFF;
+            int g = (colour >> 8) & 0xFF;
+            int b = colour & 0xFF;
+            rgbValues.add(new int[]{r, g, b});
+        }
+        return rgbValues;
+    }
+
 }
