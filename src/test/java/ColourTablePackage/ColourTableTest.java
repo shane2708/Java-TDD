@@ -58,4 +58,11 @@ public class ColourTableTest {
         assertThrows(IllegalStateException.class, () -> ct.add(128, 128, 128));
     }
 
+    @Test
+    public void testDuplicateColourAddition() {
+        ColourTable ct = new ColourTable(2);
+        ct.add(0, 0, 0);
+        assertThrows(IllegalArgumentException.class, () -> ct.add(0, 0, 0));
+    }
+
 }

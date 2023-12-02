@@ -23,6 +23,9 @@ public class ColourTable {
             throw new IllegalArgumentException("Invalid RGB value");
         }
         Integer rgb = (red << 16) | (green << 8) | blue;
+        if (colours.contains(rgb)) {
+            throw new IllegalArgumentException("Colour already exists in the ColourTable");
+        }
         colours.add(rgb);
     }
 
