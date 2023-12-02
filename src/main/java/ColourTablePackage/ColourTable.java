@@ -16,6 +16,9 @@ public class ColourTable {
     }
 
     public void add(int red, int green, int blue) {
+        if (colours.size() >= size) {
+            throw new IllegalStateException("ColourTable is full");
+        }
         if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
             throw new IllegalArgumentException("Invalid RGB value");
         }
