@@ -23,4 +23,16 @@ public class ColourTableTest {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(-3));
     }
 
+    @Test
+    public void testSizeValuesPowerOfTwo() {
+        new ColourTable(2);
+        new ColourTable(4);
+        new ColourTable(8);
+        new ColourTable(1024);
+
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(3));
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(6));
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(1025));
+    }
+
 }
