@@ -42,4 +42,12 @@ public class ColourTableTest {
         ct.add(205, 255, 215);
     }
 
+    @Test
+    public void testAddInvalidColours() {
+        ColourTable ct = new ColourTable(2);
+        assertThrows(IllegalArgumentException.class, () -> ct.add(-1, 0, 0));
+        assertThrows(IllegalArgumentException.class, () -> ct.add(0, 256, 0));
+        assertThrows(IllegalArgumentException.class, () -> ct.add(0, 0, 256));
+    }
+
 }
