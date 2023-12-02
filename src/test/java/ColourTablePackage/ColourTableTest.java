@@ -77,4 +77,15 @@ public class ColourTableTest {
         assertEquals(65280, (int) colours.get(1));
     }
 
+    @Test
+    public void testColoursStoredCorrectly() {
+        ColourTable ct = new ColourTable(2);
+        ct.add(255, 0, 0);
+        ct.add(0, 255, 0);
+
+        List<Integer> colours = ct.getColours();
+        for (int rgb : colours) {
+            assertTrue(rgb >= 0x000000 && rgb <= 0xFFFFFF);
+        }
+    }
 }
