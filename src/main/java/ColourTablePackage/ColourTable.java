@@ -29,4 +29,8 @@ public class ColourTable {
         colours.add(rgb);
     }
 
+    public List<Integer> getColours() {
+        return colours;
+    }
+
 }

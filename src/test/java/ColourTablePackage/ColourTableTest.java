@@ -65,4 +65,16 @@ public class ColourTableTest {
         assertThrows(IllegalArgumentException.class, () -> ct.add(0, 0, 0));
     }
 
+    @Test
+    public void testGetColours() {
+        ColourTable ct = new ColourTable(2);
+        ct.add(255, 0, 0);
+        ct.add(0, 255, 0);
+
+        List<Integer> colours = ct.getColours();
+        assertEquals(2, colours.size());
+        assertEquals(16711680, (int) colours.get(0));
+        assertEquals(65280, (int) colours.get(1));
+    }
+
 }
