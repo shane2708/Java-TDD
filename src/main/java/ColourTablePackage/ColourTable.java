@@ -15,4 +15,9 @@ public class ColourTable {
         this.colours = new ArrayList<>(size);
     }
 
+    public void add(int red, int green, int blue) {
+        Integer rgb = (red << 16) | (green << 8) | blue;
+        colours.add(rgb);
+    }
+
 }
