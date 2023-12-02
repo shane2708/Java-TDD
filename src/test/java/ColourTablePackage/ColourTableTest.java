@@ -101,4 +101,15 @@ public class ColourTableTest {
         assertArrayEquals(new int[]{0, 255, 0}, rgbValues.get(1));
     }
 
+    @Test
+    public void testGetHex() {
+        ColourTable ct = new ColourTable(2);
+        ct.add(255, 0, 0);
+        ct.add(0, 255, 0);
+
+        List<String> hexValues = ct.getHex();
+        assertEquals(2, hexValues.size());
+        assertEquals("#ff0000", hexValues.get(0));
+        assertEquals("#00ff00", hexValues.get(1));
+    }
 }

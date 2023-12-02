@@ -44,4 +44,16 @@ public class ColourTable {
         return rgbValues;
     }
 
+    public List<String> getHex() {
+        List<String> hexValues = new ArrayList<>();
+        for (int colour : colours) {
+            int r = (colour >> 16) & 0xFF;
+            int g = (colour >> 8) & 0xFF;
+            int b = colour & 0xFF;
+            String hex = String.format("#%02x%02x%02x", r, g, b);
+            hexValues.add(hex);
+        }
+        return hexValues;
+    }
+
 }
