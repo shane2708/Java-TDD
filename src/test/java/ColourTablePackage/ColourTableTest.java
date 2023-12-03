@@ -112,4 +112,18 @@ public class ColourTableTest {
         assertEquals("#ff0000", hexValues.get(0));
         assertEquals("#00ff00", hexValues.get(1));
     }
+
+    @Test
+    public void testDisplay() {
+        ColourTable ct = new ColourTable(4);
+        ct.add(255, 0, 0);
+        ct.add(0, 255, 0);
+        ct.add(0, 0, 255);
+        ct.add(255, 255, 255);
+
+        String output = ct.display();
+        String expectedOutput = "\033[48;2;255;0;0m \033[0m\033[48;2;0;255;0m \033[0m\033[48;2;0;0;255m \033[0m\033[48;2;255;255;255m \033[0m\n";
+        assertEquals(expectedOutput, output);
+    }
+
 }

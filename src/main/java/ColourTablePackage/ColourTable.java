@@ -56,4 +56,17 @@ public class ColourTable {
         return hexValues;
     }
 
+    public String display() {
+        StringBuilder sb = new StringBuilder();
+        for (int colour : colours) {
+            int r = (colour >> 16) & 0xFF;
+            int g = (colour >> 8) & 0xFF;
+            int b = colour & 0xFF;
+            sb.append(String.format("\033[48;2;%d;%d;%dm \033[0m", r, g, b));
+        }
+        sb.append("\n");
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
 }
